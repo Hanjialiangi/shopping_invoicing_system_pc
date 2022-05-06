@@ -49,3 +49,5 @@ export {default as Checkbox} from 'antd/es/checkbox'
 export {default as Result} from 'antd/es/result'
 
 export {default as Switch} from 'antd/es/switch'
+
+export {default as DatePicker } from 'antd/es/date-picker'

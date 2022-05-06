@@ -5,8 +5,6 @@ import {
     Button,
     message
 } from '../../antdmoudle';
-import { login } from '../../api';
-import Cookies from 'js-cookie';
 export function Login():JSX.Element
 {
     useDocumentTitle('商场进存销管理系统--登陆页面');
@@ -23,16 +21,16 @@ export function Login():JSX.Element
             message.error('账号或密码不为空');
             return;
         }
-        const res = await login({account,password});
-        if(res.data ==='success'){
-            message.success('登陆成功');
-            Cookies.set('token',res.token); //设置cookie
-            setTimeout(() => {
-                window.location.href='/collection/manage'; 
-            }, 2000);
-        }else{
-            message.error('账号或者密码错误');
-        }
+        // // const res = await login({account,password});
+        // if(res.data ==='success'){
+        //     message.success('登陆成功');
+        //     Cookies.set('token',res.token); //设置cookie
+        //     setTimeout(() => {
+        //         window.location.href='/collection/manage'; 
+        //     }, 2000);
+        // }else{
+        //     message.error('账号或者密码错误');
+        // }
     }
 
     return  <div className="bg">

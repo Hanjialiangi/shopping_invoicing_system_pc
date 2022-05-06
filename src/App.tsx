@@ -13,7 +13,6 @@ import  MenuList  from './components/MenuList';
 import React, { useEffect, useState } from 'react';
 import { NotFound } from './pages/404/index';
 import Cookies from "js-cookie";
-import { verify } from './api';
 
 const { Header, Content, Sider } = Layout;
 
@@ -37,22 +36,24 @@ export default function App() {
   const [user,setUser] = useState(''); // 登陆角色
   
   //验证
-  const verifyToken = async(auth:any)=>{
-    const res = await verify({token:auth});
-    if(res.data){
-      setToken(auth);
-      setUser(res.data);
-    }else{
-      Cookies.remove('token');
-    }
-  }
+  // const verifyToken = async(auth:any)=>{
+  //   const res = await verify({token:auth});
+  //   if(res.data){
+  //     setToken(auth);
+  //     setUser(res.data);
+  //   }else{
+  //     Cookies.remove('token');
+  //   }
+  // }
 
   useEffect(()=>{
-    const auth = Cookies.get('token');
-    if(auth){
-      verifyToken(auth);
-    }
-  },[token])
+    // const auth = Cookies.get('token');
+    setToken('acf7f89588d0f245a866a515ba4195a8');
+    setUser('admin');
+    // if(auth){
+    //    verifyToken(auth);
+    // }
+  },[])
 
  return <Layout>
    {token &&
